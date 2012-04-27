@@ -6,9 +6,9 @@ License: BSD
 Group: Development/Libraries
 URL: https://launchpad.net/oursql
 
-Source0: http://launchpad.net/oursql/trunk/%{version}/+download/oursql-python-%{version}.tar.bz2
+Source0: http://launchpad.net/oursql/trunk/%{version}/+download/oursql-%{version}.tar.bz2
 
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRoot: %{_tmppath}/oursql-%{version}-%{release}-root
 BuildRequires: python-devel python-setuptools
 BuildRequires: mysql-devel Cython
 Requires: mysql-libs python
@@ -32,7 +32,7 @@ Here’s a short list of reasons why you should use oursql over MySQLdb:
 - oursql is licensed under the BSD license.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n oursql-%{version}
 
 %build
 #rm -f doc/*~
@@ -54,4 +54,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/python?.?/site-packages/oursql.so
 
 %changelog
+
+ * Releasing the GIL for a few more functions that query the remote mysql
+   server, fixing launchpad bug #582124.
+
+ * Fixing a memory leak caused by a half-finished code refactor.
+
+ * Working around mysql sometimes returning invalid date data, fixing
+   launchpad bug #672059.
 
