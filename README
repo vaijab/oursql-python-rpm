@@ -2,6 +2,4 @@ SPEC files to build oursql-python RPMs for Fedora/RHEL/CentOS
 
   * tested on Fedora-16 and CentOS-6.2, should work on other RPM based distributions
 
-TODO
 
-  * add changelog info to the spec files
